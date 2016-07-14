@@ -9,12 +9,12 @@ router.get('/', function(req, res, next) {
     console.log("e"+e);
     res.send(docs);
   });
-  collection.insert({"name":"ZY","age":"24"}).then(function (docs){
+ /* collection.insert({"name":"ZY","age":"24"}).then(function (docs){
     console.log("insert:"+docs);
   });
   collection.update({"name":"ZY"},{$set:{"class":12}},{multi:true}).then(function (docs){
     console.log("update:"+docs)
-  })
+  })*/
 });
 
 module.exports = router;

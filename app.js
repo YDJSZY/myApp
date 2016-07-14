@@ -10,6 +10,7 @@ var monk = require('monk');
 var db = monk('localhost:27017/blog');
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var login_register = require("./routes/login_register");
 
 var app = express();
 
@@ -29,9 +30,14 @@ app.use(function(req,res,next){
   req.db = db;
   next();
 })
+app.param("id", function(req, res, next, id){
+  console.log("id:"+id);
+  next();
+})
 app.use('/', routes);
-app.use('/users', users);
-
+app.use('/users/:id', users);
+app.use('/login', login_register.login);
+app.use('/register', login_register.register);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
