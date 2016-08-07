@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
-    <link rel="stylesheet" href="/packages/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../stylesheets/style.css">
 </head>
 <body ng-app="app">
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -48,6 +49,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#/login/">登录</a></li>
                 <li><a href="#/register/">注册</a></li>
+                <li><a href="#/main/">主页</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -55,12 +57,14 @@
 <div class="container" style="margin-top: 48px;" ng-view>
 
 </div>
-<script type="text/javascript" src="/packages/jquery/dist/jquery.min.js"></script>
-<script type="text/javascript" src="/packages/angular/angular.min.js"></script>
-<script type="text/javascript" src="/packages/angular/angular-route.min.js"></script>
-<script type="text/javascript" src="/packages/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="../bower_components/angular/angular.min.js"></script>
+<script type="text/javascript" src="../bower_components/angular-route/angular-route.min.js"></script>
+<script type="text/javascript" src="../bower_components/angular-cookies/angular-cookies.min.js"></script>
+<script type="text/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="/javascripts/controller/loginCtrl.js"></script>
 <script type="text/javascript" src="/javascripts/controller/registerCtrl.js"></script>
+<script type="text/javascript" src="/javascripts/controller/mainCtrl.js"></script>
 <script type="text/javascript" src="/javascripts/controller/index.js"></script>
 </body>
 </html>

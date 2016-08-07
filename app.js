@@ -5,15 +5,19 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var ejs = require('ejs');
-var mongo = require('mongodb');
-var monk = require('monk');
-var db = monk('localhost:27017/blog');
+var mongoose = require("mongoose");
+var db = mongoose.createConnection('localhost','blog'); //创建一个数据库连接
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var login_register = require("./routes/login_register");
-
+var register = require("./routes/register");
+var login = require("./routes/login");
+var myinfo = require("./routes/myinfo");
 var app = express();
 
+db.on('error',console.error.bind(console,'连接错误:'));
+db.once('open',function(){
+  console.log("数据库已打开啦")
+});
 // view engine setup
 app.set('views', path.join(__dirname, 'public/views'));
 app.engine('html',ejs.__express);
@@ -27,6 +31,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(function(req,res,next){
+  //console.log("cookies:"+req.cookies)
+  next();
+})
+app.use(function(req,res,next){
   req.db = db;
   next();
 })
@@ -36,8 +44,9 @@ app.param("id", function(req, res, next, id){
 })
 app.use('/', routes);
 app.use('/users/:id', users);
-app.use('/login', login_register.login);
-app.use('/register', login_register.register);
+app.use('/login', login);
+app.use('/register', register);
+app.use('/myinfo', myinfo);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

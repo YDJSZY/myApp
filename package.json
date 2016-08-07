@@ -13,11 +13,10 @@
     "jade": "~1.11.0",
     "morgan": "~1.7.0",
     "serve-favicon": "~2.3.0",
-    "angular":"~1.5.7",
-    "bootstrap":"~3.3.6",
     "mongodb": "*",
     "monk": "*",
     "ejs":"*",
-    "jquery":"~2.1.4"
+    "mongoose":"*",
+    "express-mongoose":"*"
   }
 }

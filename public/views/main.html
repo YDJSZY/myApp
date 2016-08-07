@@ -1,0 +1,20 @@
+<div class="row weibo">
+    <div class="col-sm-3 col-md-3 col-lg-3"></div>
+    <div class="col-sm-6 col-md-6 col-lg-6">
+        <div class="sendContent weibo_block">
+            <h4 class="weibo_tip">说点什么吧!</h4>
+            <form role="form">
+                <div class="form-group" style="height:80px">
+                    <textarea class="form-control col-sm-12 col-md-12" data-ng-model="weiboContent" style="height:100%"></textarea>
+                </div>
+                <div class="form-group" style="margin-top:-5px;height:50px">
+                    <button class="btn btn-success pull-right" data-ng-click="sendWeibo()">发布</button>
+                </div>
+            </form>
+        </div>
+        <div class="messageCountTip weibo_block">
+            <a href="" style="color: #767676;" data-ng-click="getWeiboMessage()">您有一条消息</a>
+        </div>
+    </div>
+    <div class="col-sm-3 col-md-3 col-lg-3"></div>
+</div>
